@@ -2,6 +2,7 @@ package adeo.leroymerlin.cdp.dto;
 
 import adeo.leroymerlin.cdp.entity.Band;
 
+import java.util.Objects;
 import java.util.Set;
 
 public class EventDto {
@@ -12,6 +13,8 @@ public class EventDto {
     private Set<BandDto> bands;
     private Integer nbStars;
     private String comment;
+
+    public EventDto() {}
 
     public EventDto(Long id, String title, String imgUrl, Set<BandDto> bands, Integer nbStars, String comment) {
         this.id = id;
@@ -68,5 +71,18 @@ public class EventDto {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EventDto eventDto = (EventDto) o;
+        return Objects.equals(id, eventDto.id) && Objects.equals(title, eventDto.title) && Objects.equals(imgUrl, eventDto.imgUrl) && Objects.equals(bands, eventDto.bands) && Objects.equals(nbStars, eventDto.nbStars) && Objects.equals(comment, eventDto.comment);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, imgUrl, bands, nbStars, comment);
     }
 }

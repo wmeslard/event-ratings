@@ -90,6 +90,13 @@ public class EventService {
         return filteredEvents;
     }
 
+    /**
+     * Filter bands by member name and add the number of matching members in the band's name
+     *
+     * @param bands the bands to filter
+     * @param query the query to filter bands
+     * @return a set of filtered bands
+     */
     private Set<BandDto> filterBands(Set<Band> bands, String query) {
         Set<BandDto> filteredBands = new HashSet<>();
 
@@ -105,6 +112,13 @@ public class EventService {
         return filteredBands;
     }
 
+    /**
+     * Filter members by name
+     *
+     * @param members the members to filter
+     * @param query the query to filter members
+     * @return a set of filtered members
+     */
     private Set<MemberDto> filterMembers(Set<Member> members, String query) {
         return members.stream()
                 .filter(member -> member.getName().contains(query))
@@ -112,6 +126,13 @@ public class EventService {
                 .collect(Collectors.toSet());
     }
 
+    /**
+     * Create a band DTO from a band entity and a set of filtered members with a title containing the number of filtered members
+     *
+     * @param band the band to create the DTO from
+     * @param filteredMembers the filtered members
+     * @return the band DTO
+     */
     private BandDto createBandDtoWithCountTitle(Band band, Set<MemberDto> filteredMembers) {
         BandDto bandDto = BandMapper.toDto(band);
         bandDto.setName(band.getName() + " [" + filteredMembers.size() + "]");
@@ -119,6 +140,13 @@ public class EventService {
         return bandDto;
     }
 
+    /**
+     * Create an event DTO from an event entity and a set of filtered bands with a title containing the number of filtered bands
+     *
+     * @param event the event to create the DTO from
+     * @param filteredBands the filtered bands
+     * @return the event DTO
+     */
     private EventDto createEventDtoWithCountTitle(Event event, Set<BandDto> filteredBands) {
         EventDto eventDto = EventMapper.toDto(event);
         eventDto.setTitle(event.getTitle() + " [" + filteredBands.size() + "]");

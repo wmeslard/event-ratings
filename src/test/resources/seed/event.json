@@ -1,0 +1,23 @@
+{
+  "id": 1,
+  "title": "Event 1",
+  "imgUrl": "imgUrl",
+  "bands": [
+    {
+      "id": 1,
+      "name": "Band 1",
+      "members": [
+        {
+          "id": 1,
+          "name": "Member 1"
+        },
+        {
+          "id": 2,
+          "name": "Member 2"
+        }
+      ]
+    }
+  ],
+  "nbStars": 5,
+  "comment": "Great event"
+}
