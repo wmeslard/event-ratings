@@ -1,4 +1,4 @@
-package adeo.leroymerlin.cdp.exceptions;
+package adeo.leroymerlin.cdp.exception;
 
 /**
  * Not Found Exception for Event requests

@@ -1,11 +1,9 @@
 package adeo.leroymerlin.cdp.mapper;
 
-import adeo.leroymerlin.cdp.dto.EventDto;
 import adeo.leroymerlin.cdp.dto.MemberDto;
-import adeo.leroymerlin.cdp.entity.Event;
 import adeo.leroymerlin.cdp.entity.Member;
 
-public class BandMapper
+public class MemberMapper
 {
 
     public static MemberDto toDto(Member member) {
@@ -13,9 +11,6 @@ public class BandMapper
     }
 
     public static Member toEntity(MemberDto memberDto) {
-        Member member = new Member();
-        member.setId(memberDto.getId());
-        member.setName(memberDto.getName());
-        return member;
+        return new Member(memberDto.getId(), memberDto.getName());
     }
 }

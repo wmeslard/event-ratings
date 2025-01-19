@@ -1,6 +1,7 @@
 package adeo.leroymerlin.cdp;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import adeo.leroymerlin.cdp.dto.EventDto;
+import adeo.leroymerlin.cdp.entity.Event;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,12 +17,12 @@ public class EventController {
     }
 
     @GetMapping(value = "/")
-    public List<Event> findEvents() {
+    public List<EventDto> findEvents() {
         return eventService.getEvents();
     }
 
     @GetMapping(value = "/search/{query}")
-    public List<Event> findEvents(@PathVariable String query) {
+    public List<EventDto> findEvents(@PathVariable String query) {
         return eventService.getFilteredEvents(query);
     }
 
@@ -31,7 +32,7 @@ public class EventController {
     }
 
     @PatchMapping(value = "/{id}")
-    public Event updateEvent(@PathVariable Long id, @RequestBody Event event) {
+    public EventDto updateEvent(@PathVariable Long id, @RequestBody Event event) {
         return eventService.update(id, event);
     }
 }
