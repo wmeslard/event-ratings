@@ -1,6 +1,7 @@
-package adeo.leroymerlin.cdp;
+package adeo.leroymerlin.cdp.entity;
 
 import jakarta.persistence.*;
+
 import java.util.Set;
 
 @Entity
@@ -14,6 +15,14 @@ public class Band {
 
     @OneToMany(fetch = FetchType.EAGER)
     private Set<Member> members;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Set<Member> getMembers() {
         return members;
