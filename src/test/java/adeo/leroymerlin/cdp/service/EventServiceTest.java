@@ -1,16 +1,15 @@
-package adeo.leroymerlin.cdp;
+package adeo.leroymerlin.cdp.service;
 
 import adeo.leroymerlin.cdp.dto.EventDto;
 import adeo.leroymerlin.cdp.entity.Band;
 import adeo.leroymerlin.cdp.entity.Event;
 import adeo.leroymerlin.cdp.entity.Member;
 import adeo.leroymerlin.cdp.exception.EventNotFoundException;
-import org.junit.jupiter.api.BeforeEach;
+import adeo.leroymerlin.cdp.repository.EventRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.IOException;

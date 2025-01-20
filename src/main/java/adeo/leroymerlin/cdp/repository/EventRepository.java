@@ -1,4 +1,4 @@
-package adeo.leroymerlin.cdp;
+package adeo.leroymerlin.cdp.repository;
 
 import adeo.leroymerlin.cdp.entity.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
