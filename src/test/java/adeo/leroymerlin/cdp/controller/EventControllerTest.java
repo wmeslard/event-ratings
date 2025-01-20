@@ -6,7 +6,6 @@ import adeo.leroymerlin.cdp.service.EventService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import lombok.RequiredArgsConstructor;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.ComponentScan;
@@ -28,7 +27,6 @@ import static org.mockito.Mockito.when;
 
 @ComponentScan(basePackages = "adeo.leroymerlin.cdp.controller")
 @WebMvcTest(value = EventController.class)
-@RequiredArgsConstructor
 class EventControllerTest {
 
     private MockMvc mockMvc;
@@ -39,6 +37,8 @@ class EventControllerTest {
 
     @MockBean
     private EventService eventService;
+
+    EventControllerTest(WebApplicationContext webApplicationContext) {this.webApplicationContext = webApplicationContext;}
 
     @BeforeEach
     void setup() {
